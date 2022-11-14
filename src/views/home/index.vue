@@ -2,7 +2,7 @@
 </script>
 
 <template lang="pug">
-router-view
+h1 home
 </template>
 
 <style scoped>

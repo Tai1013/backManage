@@ -1,7 +1,27 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
+import dotenv from 'dotenv'
 
-// https://vitejs.dev/config/
+dotenv.config()
+
 export default defineConfig({
-  plugins: [vue()]
+  plugins: [
+    {
+      name: 'html-transform',
+      transformIndexHtml(html) {
+        return html.replace(
+          /<title>(.*?)<\/title>/,
+          `<title>${process.env.VITE_APP_TITLE}</title>`
+        )
+      }
+    },
+    vue()
+  ],
+  base: './',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    }
+  },
 })
