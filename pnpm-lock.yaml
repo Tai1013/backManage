@@ -16,6 +16,7 @@ specifiers:
   eslint-plugin-vue: ^9.7.0
   husky: ^8.0.0
   lint-staged: ^13.0.3
+  normalize.css: ^8.0.1
   pinia: ^2.0.23
   pinia-plugin-persistedstate-2: ^2.0.2
   postcss: ^8.4.19
@@ -49,6 +50,7 @@ devDependencies:
   eslint-plugin-vue: 9.7.0_eslint@8.27.0
   husky: 8.0.2
   lint-staged: 13.0.3
+  normalize.css: 8.0.1
   postcss: 8.4.19
   pug: 3.0.2
   sass: 1.56.1
@@ -2477,6 +2479,10 @@ packages:
   /normalize-wheel-es/1.2.0:
     resolution: {integrity: sha512-Wj7+EJQ8mSuXr2iWfnujrimU35R2W4FAErEyTmJoJ7ucwTn2hOUSsRehMb5RSYkxXGTM7Y9QpvPmp++w5ftoJw==}
     dev: false
+
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+    dev: true
 
   /npm-run-path/4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
