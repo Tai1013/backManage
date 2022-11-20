@@ -26,6 +26,7 @@
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
     "@vitejs/plugin-vue": "^3.2.0",
+    "@volar/vue-language-plugin-pug": "^1.0.9",
     "autoprefixer": "^10.4.13",
     "dotenv": "^16.0.3",
     "eslint": "^8.27.0",
