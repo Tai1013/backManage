@@ -1,19 +1,22 @@
 import { localePath, localeFile, i18n } from './install'
-import { ref, reactive, watch } from 'vue'
+import { MessageFunctions } from 'vue-i18n'
+import { ref, watch } from 'vue'
+
+interface ElementLocale {
+  name: string
+  el: MessageFunctions
+}
 
 export const $t = i18n.global.t
 
-export const localeList = Object.keys(localeFile).map(locale => locale.slice(localePath.length, -5))
-
 const getElementLocale = async (locale: string) => {
-  console.log(locale)
   return (await import(`../../node_modules/element-plus/es/locale/lang/${locale}.mjs`)).default
 }
 
 export const useLanguage = () => {
+  const elementLocale = ref<ElementLocale | undefined>(undefined)
   const language = ref(localStorage.getItem('locale') ?? import.meta.env.VITE_DEFAULT_LANGUAGE)
-
-  const elementLocale = ref({})
+  const localeList = Object.keys(localeFile).map(locale => locale.slice(localePath.length, -5))
 
   watch(() => language.value, async () => {
     elementLocale.value = await getElementLocale(language.value)
@@ -21,6 +24,7 @@ export const useLanguage = () => {
 
   return {
     language,
+    localeList,
     elementLocale
   }
 }
