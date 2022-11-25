@@ -14,6 +14,9 @@ export interface FormField {
   onChange?: <T>({ value, field }: { value: T, field: FormField }) => void
 }
 
+export type LabelPosition = 'left' | 'right' | 'top'
+export type FormButton = 'submit' | 'cancel' | 'reset'
+
 const fieldValidator = (fields: FormField[]) => {
   fields.every(field => {
     if (!('prop' in field)) throw "form prop not undefined"
