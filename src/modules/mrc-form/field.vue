@@ -1,32 +1,30 @@
 <template lang="pug">
-.field-comp
-  template(v-if="field.component === 'select'")
-    el-select(
-      v-bind="field.attrs"
-      :type="field.type"
-      v-model="form[field.prop]"
-      :clearable="field.clearable"
-      :disabled="field.disabled"
-      :placeholder="$t('請選擇')"
-      @change="value => onChange(value, field)"
+template(v-if="field.component === 'select'")
+  el-select(
+    v-bind="field.attrs"
+    :type="field.type"
+    v-model="form[field.prop]"
+    :clearable="field.clearable"
+    :disabled="field.disabled"
+    :placeholder="$t('placeholder.請選擇')"
+    @change="value => onChange(value, field)"
+  )
+    el-option(
+      v-for="option in field.options"
+      :key="option.value"
+      :label="option.label"
+      :value="option.value"
     )
-      el-option(
-        v-for="option in field.options"
-        :key="option.value"
-        :label="option.label"
-        :value="option.value"
-      )
-  template(v-else)
-    el-input(
-      v-bind="field.attrs"
-      :type="field.type"
-      v-model="form[field.prop]"
-      :clearable="field.clearable"
-      :disabled="field.disabled"
-      :placeholder="$t('請輸入')"
-      @change="value => onChange(value, field)"
-    )
-
+template(v-else)
+  el-input(
+    v-bind="field.attrs"
+    :type="field.type"
+    v-model="form[field.prop]"
+    :clearable="field.clearable"
+    :disabled="field.disabled"
+    :placeholder="$t('placeholder.請輸入')"
+    @change="value => onChange(value, field)"
+  )
 </template>
 
 <script setup lang="ts">

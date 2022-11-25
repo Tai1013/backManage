@@ -17,25 +17,30 @@ el-form(
           :form="form"
           :field="field"
         )
-  el-form-item
-    mrc-button(@click="clearForm(formRef)")
-      slot(name="clear") 清除
-    mrc-button(type="primary" :loading="loading" @click="submitForm(formRef)")
-      slot(name="submit") 送出
 
+  slot
+
+  el-form-item
+    slot(name="cancel" v-if="formButton.includes('cancel')")
+      mrc-button.btn-cancel(@click="cancelForm(formRef)")
+        slot(name="cancel:button") {{ $t('button.取消') }}
+    slot(name="reset" v-if="formButton.includes('reset')")
+      mrc-button.btn-reset(type="danger" @click="resetForm(formRef)")
+        slot(name="reset:button") {{ $t('button.重置') }}
+    slot(name="submit" v-if="formButton.includes('submit')")
+      mrc-button.btn-submit(type="primary" :loading="loading" @click="submitForm(formRef)")
+        slot(name="submit:button") {{ $t('button.送出') }}
 </template>
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import type { FormInstance } from 'element-plus'
-import type { FormField } from './define'
+import type { FormField, LabelPosition, FormButton } from './define'
 import { ref } from 'vue'
 import { ElForm, ElFormItem } from 'element-plus'
 import { useMessage } from '@/common/useMessage'
 import { useI18n } from 'vue-i18n'
 import FieldComp from './field.vue'
-
-type LabelPosition = 'left' | 'right' | 'top'
 
 const props = defineProps({
   fields: {
@@ -45,6 +50,10 @@ const props = defineProps({
   form: {
     type: Object,
     required: true
+  },
+  formButton: {
+    type: Array as PropType<FormButton[]>,
+    default: () => ['cancel', 'submit']
   },
   labelPosition: {
     type: String as PropType<LabelPosition>,
@@ -60,7 +69,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['clear', 'submit'])
+const emit = defineEmits(['submit', 'reset', 'cancel'])
 
 const formRef = ref<FormInstance>()
 const { $message } = useMessage()
@@ -72,7 +81,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (valid) {
       emit('submit')
     } else {
-      if (!fields) return $message.error(t('錯誤'))
+      if (!fields) return $message.error(t('message.錯誤'))
       Object.entries(fields).map(([prop, rules]) => {
         const label = props.fields.find(field => field.prop === prop)?.label ?? ''
         const message = rules[0].message ?? ''
@@ -83,9 +92,15 @@ const submitForm = (formEl: FormInstance | undefined) => {
   })
 }
 
-const clearForm = (formEl: FormInstance | undefined) => {
+const resetForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.resetFields()
-  emit('clear')
+  emit('reset')
+}
+
+const cancelForm = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.clearValidate()
+  emit('cancel')
 }
 </script>

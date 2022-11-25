@@ -1,6 +1,26 @@
 {
-  "請輸入": "Please enter",
-  "請選擇": "Please select",
+  "帳號": "Account",
+  "密碼": "Password",
+  "記住我的帳號": "Remember account",
   "按鈕": "Button",
-  "錯誤": "Error"
+
+  "button": {
+    "取消": "Cancel",
+    "重置": "Reset",
+    "送出": "Submit"
+  },
+
+  "placeholder": {
+    "請輸入": "Please enter",
+    "請選擇": "Please select"
+  },
+
+  "message": {
+    "錯誤": "Error"
+  },
+
+  "validate": {
+    "必填": "Required",
+    "不能為空": "Cannot be empty"
+  }
 }

@@ -14,7 +14,7 @@ import type { PropType } from 'vue'
 import { ElButton } from 'element-plus'
 
 type ButtonType = 'primary'| 'success'| 'warning'| 'danger'| 'info'
-type ButtonSize = 'larg'| 'default'| 'small'
+type ButtonSize = 'large'| 'default'| 'small'
 
 const props = defineProps({
   type: {
@@ -23,7 +23,7 @@ const props = defineProps({
   },
   size: {
     type: String as PropType<ButtonSize>,
-    default: 'default'
+    default: ''
   }
 })
 </script>
