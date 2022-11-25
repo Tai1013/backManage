@@ -21,7 +21,18 @@ export default defineConfig({
   base: './',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
+      '&': path.resolve(__dirname, 'server')
+    }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: `http://${process.env.VITE_API_HOST}`,
+        changeOrigin: true,
+        secure: false,
+        rewrite: path => path.replace(/^\/api/, '')
+      }
     }
   }
 })

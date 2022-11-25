@@ -17,7 +17,6 @@ import type { FormButton } from '@/modules/mrc-form/define'
 import { ref, reactive, computed } from 'vue'
 import { ElFormItem, ElCheckbox } from 'element-plus'
 import { useI18n } from 'vue-i18n'
-
 import { defineFields } from '@/modules/mrc-form/define'
 import { required } from '@/common/useValidate'
 
