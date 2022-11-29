@@ -6,7 +6,7 @@ template(v-if="field.component === 'select'")
     v-model="form[field.prop]"
     :clearable="field.clearable"
     :disabled="field.disabled"
-    :placeholder="$t('placeholder.請選擇')"
+    :placeholder="$t('placeholder.請選擇') + field.label"
     @change="value => onChange(value, field)"
   )
     el-option(
@@ -16,15 +16,26 @@ template(v-if="field.component === 'select'")
       :value="option.value"
     )
 template(v-else)
-  el-input(
-    v-bind="field.attrs"
-    :type="field.type"
-    v-model="form[field.prop]"
-    :clearable="field.clearable"
-    :disabled="field.disabled"
-    :placeholder="$t('placeholder.請輸入')"
-    @change="value => onChange(value, field)"
-  )
+  template(v-if="field.type === 'number'")
+    el-input(
+      v-bind="field.attrs"
+      type="number"
+      v-model.number="form[field.prop]"
+      :clearable="field.clearable"
+      :disabled="field.disabled"
+      :placeholder="$t('placeholder.請輸入') + field.label"
+      @change="value => onChange(value, field)"
+    )
+  template(v-else)
+    el-input(
+      v-bind="field.attrs"
+      :type="field.type"
+      v-model="form[field.prop]"
+      :clearable="field.clearable"
+      :disabled="field.disabled"
+      :placeholder="$t('placeholder.請輸入') + field.label"
+      @change="value => onChange(value, field)"
+    )
 </template>
 
 <script setup lang="ts">

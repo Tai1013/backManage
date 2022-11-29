@@ -1,9 +1,6 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-
-const routes: RouteRecordRaw[] = [
-  { path: '/', name: 'home', component: () => import('@/views/home/index.vue') },
-  { path: '/login', name: 'login', component: () => import('@/views/login/index.vue') }
-]
+import { createRouter, createWebHistory } from 'vue-router'
+import { routes } from './routes'
+import { useUserStore } from '@/store'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -11,6 +8,15 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  const userStore = useUserStore()
+  const hasLogin = !!userStore.apiToken
+  const noRoutesMatched = to.matched.length === 0
+
+  if (to.name?.toString().match('login')) return next()
+  if (hasLogin === false) return next({ name: 'login' })
+  if (noRoutesMatched) return next({ name: 'home' })
+  if (to.name?.toString().match('home')) return next()
+
   next()
 })
 
