@@ -23,3 +23,11 @@ h1,
 :deep(.btn-submit) {
   width: 100%;
 }
+.demo-switch {
+  position: absolute;
+  right: 3rem;
+  bottom: 1rem;
+  :deep(.el-switch__label) {
+    --el-text-color-primary: #ffffff;
+  }
+}

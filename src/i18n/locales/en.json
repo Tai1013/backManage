@@ -3,6 +3,8 @@
   "密碼": "Password",
   "記住我的帳號": "Remember account",
   "按鈕": "Button",
+  "正式": "Formal",
+  "演示": "Demo",
 
   "button": {
     "取消": "Cancel",
@@ -15,8 +17,15 @@
     "請選擇": "Please select"
   },
 
-  "message": {
-    "錯誤": "Error"
+  "success": {
+    "登入成功": "Login successful"
+  },
+
+  "error": {
+    "錯誤": "Error",
+    "帳號或密碼錯誤": "Account or password is incorrect",
+    "尚未登入": "Not login",
+    "登入逾時": "Login timed out"
   },
 
   "validate": {
