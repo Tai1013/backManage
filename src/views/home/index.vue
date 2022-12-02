@@ -1,9 +1,9 @@
+<template lang="pug">
+
+</template>
+
 <script setup lang="ts">
 </script>
-
-<template lang="pug">
-h1 home
-</template>
 
 <style scoped>
 </style>

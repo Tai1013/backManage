@@ -85,7 +85,7 @@ const submitHandler = async () => {
   unload()
   if (result) {
     setLocalRemember()
-    $message.success(t('success.登入成功'))
+    $message.success(t('message.登入成功'))
     router.push('/')
   }
 }

@@ -11,9 +11,11 @@ router.beforeEach((to, from, next) => {
   const userStore = useUserStore()
   const hasLogin = !!userStore.apiToken
   const noRoutesMatched = to.matched.length === 0
+  const tokenState = userStore.getTokenState()
 
   if (to.name?.toString().match('login')) return next()
   if (hasLogin === false) return next({ name: 'login' })
+  if (tokenState.state === false) return next({ name: 'login' })
   if (noRoutesMatched) return next({ name: 'home' })
   if (to.name?.toString().match('home')) return next()
 

@@ -81,7 +81,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (valid) {
       emit('submit')
     } else {
-      if (!fields) return $message.error(t('error.錯誤'))
+      if (!fields) return $message.error(t('message.錯誤'))
       Object.entries(fields).map(([prop, rules]) => {
         const label = props.fields.find(field => field.prop === prop)?.label ?? ''
         const message = rules[0].message ?? ''

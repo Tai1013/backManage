@@ -16,15 +16,11 @@
     "請輸入": "Please enter",
     "請選擇": "Please select"
   },
-
-  "success": {
-    "登入成功": "Login successful"
-  },
-
-  "error": {
+  
+  "message": {
     "錯誤": "Error",
+    "登入成功": "Login successful",
     "帳號或密碼錯誤": "Account or password is incorrect",
-    "尚未登入": "Not login",
     "登入逾時": "Login timed out"
   },
 
