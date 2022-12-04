@@ -3,7 +3,8 @@
     {
       "id": 1,
       "account": "master",
-      "password": "42FD7BC9E7953C00"
+      "password": "42FD7BC9E7953C00",
+      "role": 1
     }
   ]
 }

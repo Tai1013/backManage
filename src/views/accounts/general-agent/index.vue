@@ -1,5 +1,5 @@
 <template lang="pug">
-.home
+.page {{ $route.meta.pageName }}
 </template>
 
 <script setup lang="ts">
