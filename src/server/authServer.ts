@@ -27,6 +27,7 @@ export const getLogin = async (body: LoginBody) => {
       const result = res.find(user => user.account === data.account && user.password === data.password)
       if (result) {
         userStore.apiToken = (new Date()).getTime()
+        userStore.saveUserProfile(result)
         return true
       }
 

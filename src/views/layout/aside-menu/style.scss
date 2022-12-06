@@ -1,0 +1,28 @@
+$aside_title_height: 60px;
+
+.aside-menu {
+  width: 100%;
+  height: 100%;
+}
+
+.el-menu {
+  width: 100%;
+  height: calc(100% - $aside_title_height);
+  border-right: none;
+}
+
+.el-sub-menu .el-menu-item {
+  background-color: #3d3d3d;
+  &:hover {
+    background-color: var(--el-menu-hover-bg-color);
+  }
+}
+
+:deep(.aside-title) {
+  --el-link-font-size: 20px;
+  --el-link-text-color: #ffffff;
+  width: 100%;
+  height: $aside_title_height;
+  background-color: #3d3d3d;
+  transition: color var(--el-transition-duration);
+}

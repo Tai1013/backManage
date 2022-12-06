@@ -1,0 +1,11 @@
+.layout {
+  height: 100vh;
+  background-color: #e4e7ed;
+  &-main {
+    padding: var(--el-main-padding);
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    box-sizing: border-box;
+  }
+}

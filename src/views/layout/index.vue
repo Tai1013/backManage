@@ -14,13 +14,5 @@ import AsideMenu from './aside-menu/index.vue'
 </script>
 
 <style scoped lang="scss">
-.layout {
-  height: 100vh;
-  background-color: #e4e7ed;
-  &-main {
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-  }
-}
+@import './style.scss';
 </style>
