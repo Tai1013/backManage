@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
 import axios, { AxiosRequestConfig, Method, AxiosResponse } from 'axios'
-import { useConfigStore } from '@/store'
+import { useConfigStore, useUserStore } from '@/store'
 import { configMode } from './config'
 
 export interface XhrOption extends AxiosRequestConfig {
@@ -16,6 +16,7 @@ interface DemoCache {
 const XHR_TIME_OUT = 3000
 const CACHE_DEMO_TIME = 5000
 const configStore = useConfigStore()
+const userStore = useUserStore()
 
 const demoCache = reactive<DemoCache>({
   state: false,
@@ -39,8 +40,8 @@ export const xhr = async ({
   method,
   timeout = XHR_TIME_OUT
 }: XhrOption) => {
+  userStore.updateToken()
   const [formal, demo] = configMode[url]
-
   const options: AxiosRequestConfig = {
     headers: {},
     url: configStore.isFormal ? '/api/' + formal : demo,
