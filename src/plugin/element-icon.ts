@@ -1,8 +1,8 @@
 import { Plugin, createVNode } from 'vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-const icon = Object.keys(ElementPlusIconsVue)
-export type IconType = typeof icon[number]
+export const elementIcon = Object.keys(ElementPlusIconsVue)
+export type ElementIconType = typeof elementIcon[number]
 
 const Icon = (props: { icon: string }) => {
   const { icon } = props

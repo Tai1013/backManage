@@ -1,11 +1,11 @@
-import type { IconType } from '@/plugin/element-icon'
+import type { ElementIconType } from '@/plugin/element-icon'
 import { RouteRecordRaw, RouterView } from 'vue-router'
 import { $t } from '@/i18n'
 
 declare module 'vue-router' {
   export interface RouteMeta {
     pageName?: string
-    pageIcon?: IconType
+    pageIcon?: ElementIconType
   }
 }
 

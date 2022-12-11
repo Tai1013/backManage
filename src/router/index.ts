@@ -16,6 +16,7 @@ router.beforeEach((to, from, next) => {
   if (to.name?.toString().match('login')) return next()
   if (hasLogin === false) return next({ name: 'login' })
   if (tokenState.state === false) return next({ name: 'login' })
+  userStore.updateToken()
   if (noRoutesMatched) return next({ name: 'home' })
   if (to.name?.toString().match('home')) return next()
 

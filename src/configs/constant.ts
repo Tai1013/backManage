@@ -11,3 +11,13 @@ export type RoleType = typeof roles[number]
 
 export const actions = ['查看', '新增', '編輯', '刪除'] as const
 export type ActionType = typeof actions[number]
+
+export const LOCALE_LIST = [
+  { value: 'zh-tw', label: '繁體中文' },
+  { value: 'en', label: '英語' }
+] as const
+
+export const TIMEZONE_LIST = [
+  { value: 'Asia/Taipei', label: '台北時間' },
+  { value: 'America/New_York', label: '紐約時間' }
+] as const
