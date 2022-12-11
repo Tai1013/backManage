@@ -1,11 +1,10 @@
 import 'normalize.css'
 import 'element-plus/dist/index.css'
-import './assets/scss/style.scss'
 import './global/prototype'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import ElementIcon from './plugin/element-icon'
+import ElementIcon from './plugin/icons/element-icon'
 import Pinia from './store/install'
 import I18n from './i18n/install'
 import Router from './router'

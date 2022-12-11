@@ -1,4 +1,4 @@
-import type { ElementIconType } from '@/plugin/element-icon'
+import type { IconType } from '@/plugin/icons'
 import type { RouteRecordRaw } from 'vue-router'
 import { computed } from 'vue'
 import { routes } from '@/router/routes'
@@ -6,7 +6,7 @@ import { routes } from '@/router/routes'
 declare module 'vue-router' {
   export interface RouteMeta {
     pageName?: string
-    pageIcon?: ElementIconType
+    pageIcon?: IconType
   }
 }
 

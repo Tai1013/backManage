@@ -4,8 +4,8 @@ i.custom-icon(v-if="icon" v-html="customIconData[icon]")
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { CustomIconType } from './custom'
-import { customIconData } from './custom'
+import type { CustomIconType } from '@/plugin/icons/custom'
+import { customIconData } from '@/plugin/icons/custom'
 
 const props = defineProps({
   icon: {

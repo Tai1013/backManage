@@ -1,7 +1,9 @@
 .between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 20px;
-  &-left,q
-  &-right {
+  &-item {
     display: flex;
     align-items: center;
   }

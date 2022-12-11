@@ -1,4 +1,4 @@
-import type { ElementIconType } from '@/plugin/element-icon'
+import type { ElementIconType } from '@/plugin/icons/element-icon'
 import { RouteRecordRaw, RouterView } from 'vue-router'
 import { $t } from '@/i18n'
 

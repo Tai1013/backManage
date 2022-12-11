@@ -6,15 +6,14 @@ el-icon(v-if="icon" :color="color")
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { ElementIconType } from '@/plugin/element-icon'
-import type { CustomIconType } from './custom/custom'
+import type { IconType } from '@/plugin/icons'
 import { ElIcon } from 'element-plus'
-import { elementIcon } from '@/plugin/element-icon'
-import CustomIcon from './custom/index.vue'
+import { elementIcon } from '@/plugin/icons/element-icon'
+import CustomIcon from './custom.vue'
 
 const props = defineProps({
   icon: {
-    type: String as PropType<ElementIconType | CustomIconType>,
+    type: String as PropType<IconType>,
     default: undefined
   },
   color: {
